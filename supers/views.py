@@ -11,10 +11,10 @@ from super_types.serializers import SuperTypeSerializer
 @api_view(['GET', 'POST'])
 def supers_list(request):
     
-    if request.method == 'GET':
-        
+    if request.method == 'GET':        
         supe_type = request.query_params.get('type')        
         supers = Super.objects.all()
+        #supers_type = SuperType.objects.all()
         if supe_type:
             supers = supers.filter(super_type__type=supe_type)
         serializer = SuperSerializer(supers, many=True)
