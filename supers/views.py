@@ -9,7 +9,13 @@ from .models import Super
 def supers_list(request):
     
     if request.method == 'GET':
+        
+        supe_type = request.query_params.get('type')
+        print(supe_type)
+        
         supers = Super.objects.all()
+        if supe_type:
+            supers = supers.filter(super_type__type=supe_type)
         serializer = SuperSerializer(supers, many=True)
         return Response(serializer.data)
     
