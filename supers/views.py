@@ -10,21 +10,29 @@ from super_types.serializers import SuperTypeSerializer
 
 @api_view(['GET', 'POST'])
 def supers_list(request):
-    
-    if request.method == 'GET':        
-        supe_type = request.query_params.get('type')        
-        supers = Super.objects.all()
-        #supers_type = SuperType.objects.all()
-        if supe_type:
-            supers = supers.filter(super_type__type=supe_type)
-        serializer = SuperSerializer(supers, many=True)
-        return Response(serializer.data)
-    
-    elif request.method == 'POST':
+    supers = Super.objects.all()
+    supe_type = request.query_params.get('type')
+    type_supe = SuperType.objects.all()
+    if request.method == 'POST':
         serializer = SuperSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    elif request.method == 'GET' and supe_type:
+        supers = supers.filter(super_type__type=supe_type)
+        serializer = SuperSerializer(supers, many=True)
+        return Response(serializer.data)
+    else:
+        heroes = Super.objects.filter(super_type_id=1)
+        hero_serializer = SuperSerializer(heroes, many=True)
+        villains = Super.objects.filter(super_type_id=2)
+        villian_serializer = SuperSerializer(villains, many=True)
+        custom_response = {
+            'heroes': hero_serializer.data,
+            'villains': villian_serializer.data
+        }
+        return Response(custom_response, status=status.HTTP_200_OK)
+    
     
 @api_view(['GET', 'PUT', 'DELETE'])
 def super_detail(request, pk):
