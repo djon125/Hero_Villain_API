@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "ae4280f8-ebab-444c-80fd-ae6515c23855",
+		"name": "Hero_Villain_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21960268"
+	},
+	"item": [
+		{
+			"name": "Get_All_Supers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers?type=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Supers_Heroes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers?type=Hero",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Hero"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Supers_Villains",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers?type=Villain",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Villain"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Super By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Super",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"djon\",\r\n    \"alter_ego\": \"Dion Ross\",\r\n    \"primary_ability\": \"cool coding ability\",\r\n    \"secondary_ability\": \"problem solving\",\r\n    \"catchphrase\": \"It's codin' time!\",\r\n    \"super_type_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Super",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Batman\",\r\n    \"alter_ego\": \"Bruce Wayne\",\r\n    \"primary_ability\": \"Super Detective\",\r\n    \"secondary_ability\": \"Wealthy\",\r\n    \"catchphrase\": \"I'm Batman\",\r\n    \"super_type_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/8/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"8",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE super",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/8/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"8",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
